@@ -1,0 +1,28 @@
+{
+  "name": "python",
+  "dockerComposeFile": [
+    "compose.yml"
+  ],
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "tamasfe.even-better-toml",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "charliermarsh.ruff"
+      ]
+    }
+  },
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils": {},
+    "ghcr.io/devcontainers/features/git": {},
+    "ghcr.io/devcontainers-extra/features/go-task:1": {},
+    "ghcr.io/devcontainers-extra/features/lefthook-asdf:1": {}
+  },
+  "onCreateCommand": "/bin/bash .devcontainer/on-create.sh",
+  "postAttachCommand": "/bin/bash .devcontainer/post-attach.sh"
+}

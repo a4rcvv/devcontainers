@@ -1,0 +1,29 @@
+name: ts-node
+services:
+  dev:
+    volumes:
+      - type: bind
+        source: ..
+        target: /workspace
+      - type: volume
+        source: npm-global
+        target: /home/node/.npm-global
+      - type: volume
+        source: npm-cache
+        target: /home/node/.npm
+      - type: volume
+        source: cache
+        target: /home/node/.cache
+      - type: volume
+        source: node-modules
+        target: /workspace/node_modules
+    tty: true
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+
+volumes:
+  npm-global:
+  npm-cache:
+  node-modules:
+  cache:

@@ -1,0 +1,21 @@
+name: python
+services:
+  dev:
+    volumes:
+      - type: bind
+        source: ..
+        target: /workspace
+      - type: volume
+        source: venv
+        target: /workspace/.venv
+      - type: volume
+        source: cache
+        target: /home/vscode/.cache
+    tty: true
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+
+volumes:
+  venv:
+  cache:

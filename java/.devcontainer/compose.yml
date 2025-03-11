@@ -1,0 +1,21 @@
+name: java
+services:
+  dev:
+    volumes:
+      - type: bind
+        source: ..
+        target: /workspace
+      - type: volume
+        source: cache
+        target: /home/vscode/.cache
+      - type: volume
+        source: gradle
+        target: /home/vscode/.gradle
+    tty: true
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+
+volumes:
+  cache:
+  gradle:
